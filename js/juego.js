@@ -75,7 +75,9 @@ En vez de intercambiar esos valores vamos a terminar teniendo en ambas posicione
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-    //COMPLETAR
+    grilla[1][2] = grilla[0][0];
+    grilla[0][0] = grilla[1][2];
+    //var grillaTemporal
 }
 
 // Actualiza la posición de la pieza vacía
@@ -86,7 +88,11 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
 
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-    //COMPLETAR
+    if (fila <= 2, 2 && filla >= 0, 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición
