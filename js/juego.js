@@ -27,8 +27,7 @@ Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
     for (var i = 0; i < instrucciones.length; i++) {
-        mostrarInstruccionEnLista(instrucciones[i], "lista-instrucciones");
-        console.log(instrucciones[i]);
+        mostrarInstruccionEnLista(instrucciones[i], 'lista-instrucciones');
     }
 }
 
@@ -38,7 +37,7 @@ y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
 function ultimoMovimiento(direccion) {
     movimientos.push(direccion);
 
-    actualizarUltimoMovimiento();
+    actualizarUltimoMovimiento(direccion);
 }
 // 
 
@@ -49,11 +48,10 @@ function chequearSiGano() {
         for (var j = 0; j < grilla[i].length; j++) {
             if (grilla[i][j] !== grillaWin[i][j]) {
                 return false;
-            } else {
-                return true;
             }
         }
     }
+    return true;
 }
 
 
@@ -75,9 +73,10 @@ En vez de intercambiar esos valores vamos a terminar teniendo en ambas posicione
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-    grilla[1][2] = grilla[0][0];
+    grillaAuxiliar = [filaPos1][columnaPos1]
+    grilla[filaPos1][columnaPos1] = grilla[0][0];
     grilla[0][0] = grilla[1][2];
-    //var grillaTemporal
+
 }
 
 // Actualiza la posición de la pieza vacía
