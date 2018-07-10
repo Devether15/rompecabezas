@@ -1,5 +1,9 @@
-// Arreglo que contiene las intrucciones del juego 
-var instrucciones = ['Utiliza las felchas del teclado para mover las fichas', 'intercambia de lugar las piezas'];
+// Arreglo que contiene las intrucciones del juego
+
+// paso 1g2
+var instrucciones = ['Utiliza las felchas del teclado para mover las fichas',
+    'intercambia de lugar las piezas'
+];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 
@@ -25,12 +29,16 @@ var columnaVacia = 2;
 Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-instrucciones'. 
 Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
+
+// paso 2g2
 function mostrarInstrucciones(instrucciones) {
     for (var i = 0; i < instrucciones.length; i++) {
         mostrarInstruccionEnLista(instrucciones[i], 'lista-instrucciones');
     }
 }
 
+// paso 3g2, falta la sugerencia de los ultimos 5 movientos o mostrar al final
+// del juego todos los movimientos realizados
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
@@ -39,8 +47,8 @@ function ultimoMovimiento(direccion) {
 
     actualizarUltimoMovimiento(direccion);
 }
-// 
 
+// paso 1g3, for anidados
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora. 
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
@@ -54,7 +62,7 @@ function chequearSiGano() {
     return true;
 }
 
-
+// paso 2g3
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
     if (chequearSiGano() === true) {
@@ -72,8 +80,9 @@ arreglo[0][0] = arreglo[1][2];
 En vez de intercambiar esos valores vamos a terminar teniendo en ambas posiciones el mismo valor.
 Se te ocurre cómo solucionar esto con una variable temporal?
 */
+// paso 3g3
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-   var grillaTemporal = grilla[filaPos1][columnaPos1];
+    var grillaTemporal = grilla[filaPos1][columnaPos1];
     grilla[filaPos1][columnaPos1] = grilla[filaPos2][columnaPos2];
     grilla[filaPos2][columnaPos2] = grillaTemporal;
 
@@ -84,15 +93,15 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
     if (posicionValida(nuevaFila, nuevaColumna) === true) {
         filaVacia = nuevaFila;
         columnaVacia = nuevaColumna;
-        agregarUltimoMovimiento(filaVacia);
-        agregarUltimoMovimiento(columnaVacia);
-}
+        ultimoMovimiento(filaVacia);
+        ultimoMovimiento(columnaVacia);
+    }
 }
 
-
+// paso 4g3
 //Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-     if (fila > 2 || fila < 0 || columna > 2 || columna < 0) {
+    if (fila > 2 || fila < 0 || columna > 2 || columna < 0) {
         return false;
     } else {
         return true;
@@ -138,7 +147,7 @@ function moverEnDireccion(direccion) {
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
 
-
+        // paso 5g3
         //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
         ultimoMovimiento(direccion);
 
